@@ -29,12 +29,12 @@ export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionP
     try {
       const size = parseInt(qrSize);
       
-      // Generate the base QR code with colors
+      // Generate the base QR code with hex colors
       const qrDataUrl = await QRCode.toDataURL(qrUrl, {
         width: size,
         margin: 2,
         color: {
-          dark: 'hsl(180, 85%, 45%)', // Primary teal color
+          dark: '#2d9cdb', // Teal color in hex
           light: '#ffffff'
         },
         errorCorrectionLevel: 'H' // High error correction allows for center image
@@ -94,7 +94,7 @@ export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionP
       ctx.restore();
 
       // Add hero name at bottom
-      ctx.fillStyle = 'hsl(180, 85%, 45%)'; // Primary color
+      ctx.fillStyle = '#2d9cdb'; // Teal color in hex
       ctx.font = 'bold 16px system-ui, -apple-system, sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText(heroName, size / 2, size + 25);
@@ -110,7 +110,7 @@ export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionP
         width: size,
         margin: 2,
         color: {
-          dark: 'hsl(180, 85%, 45%)',
+          dark: '#2d9cdb', // Teal color in hex
           light: '#ffffff'
         },
         errorCorrectionLevel: 'H'
