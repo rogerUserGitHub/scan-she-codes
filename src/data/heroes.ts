@@ -50,6 +50,7 @@ import claraBartonImg from '@/assets/clara-barton.jpg';
 import emmaGoldmanImg from '@/assets/emma-goldman.jpg';
 import hannahArendtImg from '@/assets/hannah-arendt.jpg';
 import ruthBaderGinsburgImg from '@/assets/ruth-bader-ginsburg.jpg';
+import sophieSchollImg from '@/assets/sophie-scholl.jpg';
 
 export interface Hero {
   id: string;
@@ -1135,7 +1136,7 @@ const allHeroes: Hero[] = [
       'Arrested and executed in 1943',
       'Symbol of moral courage',
     ],
-    imageUrl: 'sophieSchollImg',
+    imageUrl: sophieSchollImg,
   },
   {
     id: 'nellie-bly',
