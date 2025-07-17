@@ -16,6 +16,7 @@ interface QRCodeSectionProps {
 export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionProps) => {
   const [qrSize, setQrSize] = useState('256');
   const [qrDataUrl, setQrDataUrl] = useState('');
+  const [backgroundQrDataUrl, setBackgroundQrDataUrl] = useState('');
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { toast } = useToast();
 
@@ -23,7 +24,78 @@ export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionP
 
   useEffect(() => {
     generateQRCode();
+    generateBackgroundQR();
   }, [qrSize, heroId, heroImageUrl]);
+
+  const generateBackgroundQR = async () => {
+    try {
+      const size = parseInt(qrSize);
+      
+      // Generate QR code with transparent background
+      const qrDataUrl = await QRCode.toDataURL(qrUrl, {
+        width: size,
+        margin: 2,
+        color: {
+          dark: '#ffffff', // White QR pattern
+          light: '#00000000' // Transparent background
+        },
+        errorCorrectionLevel: 'H'
+      });
+
+      // Create canvas for background composition
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      const totalHeight = size + 40;
+      canvas.width = size;
+      canvas.height = totalHeight;
+
+      // Load and draw hero image as background
+      const heroImg = new Image();
+      heroImg.crossOrigin = 'anonymous';
+      await new Promise((resolve) => {
+        heroImg.onload = resolve;
+        heroImg.src = heroImageUrl;
+      });
+
+      // Draw hero image as background, covering the QR area
+      ctx.save();
+      ctx.globalAlpha = 0.7; // Make background slightly transparent
+      ctx.drawImage(heroImg, 0, 0, size, size);
+      ctx.restore();
+
+      // Add a semi-transparent overlay for better QR contrast
+      ctx.fillStyle = 'rgba(45, 156, 219, 0.3)'; // Teal overlay
+      ctx.fillRect(0, 0, size, size);
+
+      // Draw QR code on top
+      const qrImg = new Image();
+      qrImg.crossOrigin = 'anonymous';
+      await new Promise((resolve) => {
+        qrImg.onload = resolve;
+        qrImg.src = qrDataUrl;
+      });
+      
+      ctx.drawImage(qrImg, 0, 0, size, size);
+
+      // Add hero name at bottom
+      ctx.fillStyle = '#ffffff';
+      ctx.strokeStyle = '#2d9cdb';
+      ctx.lineWidth = 2;
+      ctx.font = 'bold 14px system-ui, -apple-system, sans-serif';
+      ctx.textAlign = 'center';
+      
+      // Add text stroke for better visibility
+      ctx.strokeText(heroName, size / 2, size + 25);
+      ctx.fillText(heroName, size / 2, size + 25);
+
+      const finalDataUrl = canvas.toDataURL('image/png');
+      setBackgroundQrDataUrl(finalDataUrl);
+    } catch (error) {
+      console.error('Error generating background QR code:', error);
+    }
+  };
 
   const generateQRCode = async () => {
     try {
@@ -196,18 +268,36 @@ export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionP
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
-        <div className="text-center">
-          {qrDataUrl && (
-            <div className="inline-block p-4 bg-white rounded-lg shadow-sm">
-              <img 
-                src={qrDataUrl} 
-                alt={`QR code for ${heroName}`}
-                className="mx-auto"
-                style={{ maxWidth: qrSize + 'px' }}
-              />
-            </div>
-          )}
-          <p className="mt-4 text-sm text-muted-foreground">
+        <div className="text-center space-y-6">
+          <div>
+            <h4 className="text-sm font-medium mb-2">Design 1: Center Portrait</h4>
+            {qrDataUrl && (
+              <div className="inline-block p-4 bg-white rounded-lg shadow-sm">
+                <img 
+                  src={qrDataUrl} 
+                  alt={`QR code with center portrait for ${heroName}`}
+                  className="mx-auto"
+                  style={{ maxWidth: qrSize + 'px' }}
+                />
+              </div>
+            )}
+          </div>
+          
+          <div>
+            <h4 className="text-sm font-medium mb-2">Design 2: Background Portrait</h4>
+            {backgroundQrDataUrl && (
+              <div className="inline-block p-4 bg-white rounded-lg shadow-sm">
+                <img 
+                  src={backgroundQrDataUrl} 
+                  alt={`QR code with background portrait for ${heroName}`}
+                  className="mx-auto"
+                  style={{ maxWidth: qrSize + 'px' }}
+                />
+              </div>
+            )}
+          </div>
+          
+          <p className="text-sm text-muted-foreground">
             Scan to learn about {heroName}
           </p>
         </div>
