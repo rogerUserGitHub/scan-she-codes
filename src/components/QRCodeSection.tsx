@@ -222,7 +222,6 @@ export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionP
               <SelectContent>
                 <SelectItem value="128">Small (128px)</SelectItem>
                 <SelectItem value="256">Medium (256px)</SelectItem>
-                <SelectItem value="512">Large (512px)</SelectItem>
               </SelectContent>
             </Select>
           </div>
