@@ -16,7 +16,6 @@ interface QRCodeSectionProps {
 export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionProps) => {
   const [qrSize, setQrSize] = useState('256');
   const [qrDataUrl, setQrDataUrl] = useState('');
-  const [simpleQrDataUrl, setSimpleQrDataUrl] = useState('');
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { toast } = useToast();
 
@@ -24,30 +23,7 @@ export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionP
 
   useEffect(() => {
     generateQRCode();
-    generateSimpleQR();
   }, [qrSize, heroId, heroImageUrl]);
-
-  const generateSimpleQR = async () => {
-    try {
-      const size = parseInt(qrSize);
-      console.log('Generating simple QR for URL:', qrUrl);
-      
-      const dataUrl = await QRCode.toDataURL(qrUrl, {
-        width: size,
-        margin: 2,
-        color: {
-          dark: '#2d9cdb',
-          light: '#ffffff'
-        },
-        errorCorrectionLevel: 'M' // Medium error correction for simple QR
-      });
-      
-      setSimpleQrDataUrl(dataUrl);
-      console.log('Simple QR generated successfully');
-    } catch (error) {
-      console.error('Error generating simple QR code:', error);
-    }
-  };
 
   const generateQRCode = async () => {
     try {
@@ -95,8 +71,8 @@ export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionP
         heroImg.src = heroImageUrl;
       });
 
-      // Create circular crop for hero image - reduced size from 20% to 12%
-      const centerSize = size * 0.12; // 12% of QR code size for better scanning
+      // Create circular crop for hero image - increased to 20%
+      const centerSize = size * 0.20; // 20% of QR code size
       const centerX = size / 2;
       const centerY = size / 2;
       
@@ -220,37 +196,19 @@ export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionP
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
-        <div className="text-center space-y-4">
-          <div>
-            <h4 className="text-sm font-medium mb-2">Enhanced QR Code (with hero image)</h4>
-            {qrDataUrl && (
-              <div className="inline-block p-4 bg-white rounded-lg shadow-sm">
-                <img 
-                  src={qrDataUrl} 
-                  alt={`Enhanced QR code for ${heroName}`}
-                  className="mx-auto"
-                  style={{ maxWidth: qrSize + 'px' }}
-                />
-              </div>
-            )}
-          </div>
-          
-          <div>
-            <h4 className="text-sm font-medium mb-2">Simple QR Code (better scanning)</h4>
-            {simpleQrDataUrl && (
-              <div className="inline-block p-4 bg-white rounded-lg shadow-sm">
-                <img 
-                  src={simpleQrDataUrl} 
-                  alt={`Simple QR code for ${heroName}`}
-                  className="mx-auto"
-                  style={{ maxWidth: qrSize + 'px' }}
-                />
-              </div>
-            )}
-          </div>
-          
-          <p className="text-sm text-muted-foreground">
-            URL: <code className="bg-muted px-1 rounded text-xs">{qrUrl}</code>
+        <div className="text-center">
+          {qrDataUrl && (
+            <div className="inline-block p-4 bg-white rounded-lg shadow-sm">
+              <img 
+                src={qrDataUrl} 
+                alt={`QR code for ${heroName}`}
+                className="mx-auto"
+                style={{ maxWidth: qrSize + 'px' }}
+              />
+            </div>
+          )}
+          <p className="mt-4 text-sm text-muted-foreground">
+            Scan to learn about {heroName}
           </p>
         </div>
 
