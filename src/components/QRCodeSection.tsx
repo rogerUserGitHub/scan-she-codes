@@ -10,9 +10,10 @@ import jsPDF from 'jspdf';
 interface QRCodeSectionProps {
   heroName: string;
   heroId: string;
+  heroImageUrl: string;
 }
 
-export const QRCodeSection = ({ heroName, heroId }: QRCodeSectionProps) => {
+export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionProps) => {
   const [qrSize, setQrSize] = useState('256');
   const [qrDataUrl, setQrDataUrl] = useState('');
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -22,23 +23,99 @@ export const QRCodeSection = ({ heroName, heroId }: QRCodeSectionProps) => {
 
   useEffect(() => {
     generateQRCode();
-  }, [qrSize, heroId]);
+  }, [qrSize, heroId, heroImageUrl]);
 
   const generateQRCode = async () => {
     try {
+      const size = parseInt(qrSize);
+      
+      // Generate the base QR code with colors
+      const qrDataUrl = await QRCode.toDataURL(qrUrl, {
+        width: size,
+        margin: 2,
+        color: {
+          dark: 'hsl(180, 85%, 45%)', // Primary teal color
+          light: '#ffffff'
+        },
+        errorCorrectionLevel: 'H' // High error correction allows for center image
+      });
+
+      // Create a canvas to composite the QR code with hero image and name
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      // Set canvas size with extra space for text
+      const totalHeight = size + 40; // Extra space for name text
+      canvas.width = size;
+      canvas.height = totalHeight;
+
+      // Draw the QR code
+      const qrImg = new Image();
+      qrImg.crossOrigin = 'anonymous';
+      await new Promise((resolve) => {
+        qrImg.onload = resolve;
+        qrImg.src = qrDataUrl;
+      });
+      
+      ctx.drawImage(qrImg, 0, 0, size, size);
+
+      // Add hero image in center
+      const heroImg = new Image();
+      heroImg.crossOrigin = 'anonymous';
+      await new Promise((resolve) => {
+        heroImg.onload = resolve;
+        heroImg.src = heroImageUrl;
+      });
+
+      // Create circular crop for hero image
+      const centerSize = size * 0.2; // 20% of QR code size
+      const centerX = size / 2;
+      const centerY = size / 2;
+      
+      // Draw white circle background
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, centerSize / 2 + 4, 0, 2 * Math.PI);
+      ctx.fill();
+
+      // Draw hero image in circle
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, centerSize / 2, 0, 2 * Math.PI);
+      ctx.clip();
+      ctx.drawImage(
+        heroImg,
+        centerX - centerSize / 2,
+        centerY - centerSize / 2,
+        centerSize,
+        centerSize
+      );
+      ctx.restore();
+
+      // Add hero name at bottom
+      ctx.fillStyle = 'hsl(180, 85%, 45%)'; // Primary color
+      ctx.font = 'bold 16px system-ui, -apple-system, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(heroName, size / 2, size + 25);
+
+      // Convert canvas to data URL
+      const finalDataUrl = canvas.toDataURL('image/png');
+      setQrDataUrl(finalDataUrl);
+    } catch (error) {
+      console.error('Error generating QR code:', error);
+      // Fallback to simple QR code if image loading fails
       const size = parseInt(qrSize);
       const dataUrl = await QRCode.toDataURL(qrUrl, {
         width: size,
         margin: 2,
         color: {
-          dark: '#2d1b3d', // Dark purple from our theme
+          dark: 'hsl(180, 85%, 45%)',
           light: '#ffffff'
         },
-        errorCorrectionLevel: 'H' // High error correction for embedded images
+        errorCorrectionLevel: 'H'
       });
       setQrDataUrl(dataUrl);
-    } catch (error) {
-      console.error('Error generating QR code:', error);
     }
   };
 
@@ -118,7 +195,7 @@ export const QRCodeSection = ({ heroName, heroId }: QRCodeSectionProps) => {
                 src={qrDataUrl} 
                 alt={`QR code for ${heroName}`}
                 className="mx-auto"
-                style={{ width: qrSize + 'px', height: qrSize + 'px' }}
+                style={{ maxWidth: qrSize + 'px' }}
               />
             </div>
           )}

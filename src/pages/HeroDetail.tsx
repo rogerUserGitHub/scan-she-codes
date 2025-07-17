@@ -101,7 +101,7 @@ export const HeroDetail = () => {
           )}
 
           {/* QR Code Section */}
-          <QRCodeSection heroName={hero.name} heroId={hero.id} />
+          <QRCodeSection heroName={hero.name} heroId={hero.id} heroImageUrl={hero.imageUrl} />
         </div>
       </div>
     </div>
