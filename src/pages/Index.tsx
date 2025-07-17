@@ -1,20 +1,23 @@
 import { useState, useMemo } from 'react';
 import { HeroCard } from '@/components/HeroCard';
 import { FilterBar } from '@/components/FilterBar';
+import { Input } from '@/components/ui/input';
 import { heroes } from '@/data/heroes';
 import heroBanner from '@/assets/hero-banner.jpg';
 
 const Index = () => {
   const [selectedRegion, setSelectedRegion] = useState('All Regions');
   const [selectedInterest, setSelectedInterest] = useState('All Interests');
+  const [searchName, setSearchName] = useState('');
 
   const filteredHeroes = useMemo(() => {
     return heroes.filter(hero => {
       const regionMatch = selectedRegion === 'All Regions' || hero.region === selectedRegion;
       const interestMatch = selectedInterest === 'All Interests' || hero.interest === selectedInterest;
-      return regionMatch && interestMatch;
+      const nameMatch = searchName === '' || hero.name.toLowerCase().includes(searchName.toLowerCase());
+      return regionMatch && interestMatch && nameMatch;
     });
-  }, [selectedRegion, selectedInterest]);
+  }, [selectedRegion, selectedInterest, searchName]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -49,13 +52,26 @@ const Index = () => {
           </p>
         </div>
 
-        {/* Filter Bar */}
-        <FilterBar
-          selectedRegion={selectedRegion}
-          selectedInterest={selectedInterest}
-          onRegionChange={setSelectedRegion}
-          onInterestChange={setSelectedInterest}
-        />
+        {/* Search and Filter Section */}
+        <div className="space-y-4">
+          <div>
+            <label className="text-sm font-medium mb-2 block">Search by Name</label>
+            <Input
+              type="text"
+              placeholder="Search heroes by name..."
+              value={searchName}
+              onChange={(e) => setSearchName(e.target.value)}
+              className="max-w-md"
+            />
+          </div>
+          
+          <FilterBar
+            selectedRegion={selectedRegion}
+            selectedInterest={selectedInterest}
+            onRegionChange={setSelectedRegion}
+            onInterestChange={setSelectedInterest}
+          />
+        </div>
 
         {/* Results Count */}
         <div className="mb-6">

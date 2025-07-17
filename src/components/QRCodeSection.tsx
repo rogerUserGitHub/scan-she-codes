@@ -142,16 +142,18 @@ export const QRCodeSection = ({ heroName, heroId }: QRCodeSectionProps) => {
             </Select>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-2">
-            <Button variant="outline" onClick={copyUrl} className="flex-1">
-              <Copy className="w-4 h-4 mr-2" />
-              Copy URL
-            </Button>
-            <Button variant="outline" onClick={downloadQR} className="flex-1">
-              <Download className="w-4 h-4 mr-2" />
-              Download QR
-            </Button>
-            <Button onClick={exportPDF} variant="gradient" className="flex-1">
+          <div className="flex flex-col gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
+              <Button variant="outline" onClick={copyUrl} className="flex-1">
+                <Copy className="w-4 h-4 mr-2" />
+                Copy URL
+              </Button>
+              <Button variant="outline" onClick={downloadQR} className="flex-1">
+                <Download className="w-4 h-4 mr-2" />
+                Download QR
+              </Button>
+            </div>
+            <Button onClick={exportPDF} variant="gradient" className="w-full">
               <FileText className="w-4 h-4 mr-2" />
               Print Sticker
             </Button>
