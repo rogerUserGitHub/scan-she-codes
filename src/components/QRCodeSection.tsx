@@ -71,8 +71,8 @@ export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionP
         heroImg.src = heroImageUrl;
       });
 
-      // Create circular crop for hero image - increased to 20%
-      const centerSize = size * 0.20; // 20% of QR code size
+      // Create circular crop for hero image - increased to 30%
+      const centerSize = size * 0.30; // 30% of QR code size
       const centerX = size / 2;
       const centerY = size / 2;
       
