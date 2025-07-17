@@ -91,47 +91,18 @@ export const About = () => {
         {/* Usage Guidelines */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle>How to Use QR Stickers</CardTitle>
+            <CardTitle>Stickerim and Activism</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div>
-              <h4 className="font-semibold mb-2">Perfect for:</h4>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1">
-                <li>Classrooms and educational displays</li>
-                <li>Office spaces and community boards</li>
-                <li>Library displays and book recommendations</li>
-                <li>Notebooks, laptops, and personal items</li>
-                <li>Event materials and conference swag</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-2">Printing Tips:</h4>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1">
-                <li>Use the PDF export for best printing quality</li>
-                <li>Print on sticker paper or regular paper with adhesive backing</li>
-                <li>Ensure good contrast - QR codes work best on light backgrounds</li>
-                <li>Test scan before printing large quantities</li>
-              </ul>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Credits */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Credits & Acknowledgments</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground mb-4">
-              ScanSheCan is built with love using modern web technologies. Hero portraits 
-              are sourced from historical archives and creative commons collections where available.
+          <p className="text-muted-foreground mb-4">
+          Stickers have been a bold and simple tool for activism for decades. Affordable and easy to spread, they helped movements—from civil rights to feminism—get their messages out fast and loud. Stickers turn everyday places into stages for change, making ideas visible and sparking conversations.
             </p>
             <p className="text-muted-foreground text-sm">
-              This project is open source and designed to be freely shared. All QR codes 
-              link directly to public pages on this website. No tracking or analytics 
-              are collected from QR code scans.
+
+            Today, stickerism is evolving with technology. QR code stickers connect the physical world to online stories, letting people dive deeper with just a scan. This blend of old-school grit and new tech makes activism more accessible and powerful than ever—one sticker at a time.
             </p>
+            <div>
+            </div>
           </CardContent>
         </Card>
       </div>
