@@ -198,11 +198,11 @@ export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionP
       <CardContent className="space-y-6">
         <div className="text-center">
           {qrDataUrl && (
-            <div className="inline-block p-4 bg-white rounded-lg shadow-sm">
+            <div className="inline-block p-4 bg-white rounded-lg shadow-sm max-w-full">
               <img 
                 src={qrDataUrl} 
                 alt={`QR code for ${heroName}`}
-                className="mx-auto"
+                className="mx-auto max-w-full h-auto"
                 style={{ maxWidth: qrSize + 'px' }}
               />
             </div>
