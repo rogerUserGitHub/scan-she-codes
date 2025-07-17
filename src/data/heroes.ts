@@ -84,9 +84,17 @@ export const INTERESTS = [
   'Medicine',
   'Technology',
   'Rights Activism',
+  'Music',
+  'Law',
+  'Social Work',
+  'Space Exploration',
+  'Anarchism and Feminism',
+  'Legal Rights and Gender Equality',
+  'Law and Justice',
 ];
 
-export const heroes: Hero[] = [
+// Create unique heroes array by filtering out duplicates based on ID
+const allHeroes: Hero[] = [
   {
     id: 'ada-lovelace',
     name: 'Ada Lovelace',
@@ -356,24 +364,7 @@ export const heroes: Hero[] = [
     ],
     imageUrl: malintzinImg,
   },
-  {
-    id: 'rosa-parks',
-    name: 'Rosa Parks',
-    category: 'Activism',
-    region: 'North America',
-    interest: 'Rights Activism',
-    lifespan: '1913-2005',
-    shortBio:
-      'Civil rights activist who sparked the Montgomery Bus Boycott by refusing to give up her seat.',
-    detailedBio:
-      'Rosa Parks is renowned for her pivotal role in the American civil rights movement. Her courageous act of defiance against racial segregation became a powerful symbol of resistance.',
-    milestones: [
-      '1955: Refused to surrender her bus seat in Montgomery, Alabama',
-      '1956: Montgomery Bus Boycott led to Supreme Court ruling segregation unconstitutional',
-      '1996: Awarded the Congressional Gold Medal',
-    ],
-    imageUrl: rosaParksImg,
-  },
+  // Removed duplicate rosa-parks entry
   {
     id: 'simone-de-beauvoir',
     name: 'Simone de Beauvoir',
@@ -1628,23 +1619,7 @@ export const heroes: Hero[] = [
     ],
     imageUrl: mayaAngelouImg,
   },
-  {
-    id: 'billie-holiday',
-    name: 'Billie Holiday',
-    category: 'Art',
-    region: 'North America',
-    interest: 'Music',
-    lifespan: '1915-1959',
-    shortBio: 'Legendary jazz singer known for emotive voice and activism.',
-    detailedBio:
-      'Billie Holiday was one of the greatest jazz vocalists who also used her music to protest racial injustice, notably with the song "Strange Fruit."',
-    milestones: [
-      'Broke racial barriers in music',
-      'Popularized protest songs against lynching',
-      'Influenced countless musicians',
-    ],
-    imageUrl: billieHolidayImg,
-  },
+  // Removed duplicate billie-holiday entry
   {
     id: 'valentina-khetagurova',
     name: 'Valentina Khetagurova',
@@ -1868,3 +1843,8 @@ export const heroes: Hero[] = [
     imageUrl: emmaGoldmanImg,
   },
 ];
+
+// Remove duplicates and export unique heroes array
+export const heroes: Hero[] = allHeroes.filter((hero, index, self) => 
+  index === self.findIndex(h => h.id === hero.id)
+);
