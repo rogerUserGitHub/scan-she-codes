@@ -4,9 +4,9 @@ import marieCurieImg from '@/assets/marie-curie.jpg';
 import fridaKahloImg from '@/assets/frida-kahlo.jpg';
 import wangariMaathaiImg from '@/assets/wangari-maathai.jpg';
 import katherineJohnsonImg from '@/assets/katherine-johnson.jpg';
-import emiliaPankhurstImg from '@/assets/emilia-pankhurst.jpg';
+import emmelinePankhurstImg from '@/assets/emmeline-pankhurst.jpg';
 import hypatiaImg from '@/assets/hypatia.jpg';
-import emiliaEarhartImg from '@/assets/emilia-earhart.jpg';
+import ameliaEarhartImg from '@/assets/amelia-earhart.jpg';
 import audreLordImg from '@/assets/audre-lorde.jpg';
 import ameliaBloomerImg from '@/assets/amelia-bloomer.jpg';
 import mayaAngelouImg from '@/assets/maya-angelou.jpg';
@@ -24,7 +24,7 @@ import janeAddamsImg from '@/assets/jane-addams.jpg';
 import rosaParksImg from '@/assets/rosa-parks.jpg';
 import simoneDeBeauvoirImg from '@/assets/simone-de-beauvoir.jpg';
 import emilyDavisonImg from '@/assets/emily-davison.jpg';
-import emmelinePankhurstImg from '@/assets/emmeline-pankhurst.jpg';
+// Removed duplicate emmeline pankhurst import
 import rachelCarsonImg from '@/assets/rachel-carson.jpg';
 import anneFrankImg from '@/assets/anne-frank.jpg';
 import valentinaTereshkovaImg from '@/assets/valentina-tereshkova.jpg';
@@ -283,7 +283,7 @@ export const heroes: Hero[] = [
       '1918: Representation of the People Act granted voting rights to women over 30',
       '1928: Equal voting rights with men achieved',
     ],
-    imageUrl: emiliaPankhurstImg,
+    imageUrl: emmelinePankhurstImg,
   },
   {
     id: 'rachel-carson',
@@ -1506,7 +1506,7 @@ export const heroes: Hero[] = [
       'Set multiple aviation records',
       'Disappeared in 1937 during global flight attempt',
     ],
-    imageUrl: emiliaEarhartImg,
+    imageUrl: ameliaEarhartImg,
   },
   {
     id: 'rigoberta-menchu',
