@@ -1,0 +1,163 @@
+import { useState, useRef, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Copy, Download, FileText } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
+import QRCode from 'qrcode';
+import jsPDF from 'jspdf';
+
+interface QRCodeSectionProps {
+  heroName: string;
+  heroId: string;
+}
+
+export const QRCodeSection = ({ heroName, heroId }: QRCodeSectionProps) => {
+  const [qrSize, setQrSize] = useState('256');
+  const [qrDataUrl, setQrDataUrl] = useState('');
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { toast } = useToast();
+
+  const qrUrl = `${window.location.origin}/heroes/${heroId}`;
+
+  useEffect(() => {
+    generateQRCode();
+  }, [qrSize, heroId]);
+
+  const generateQRCode = async () => {
+    try {
+      const size = parseInt(qrSize);
+      const dataUrl = await QRCode.toDataURL(qrUrl, {
+        width: size,
+        margin: 2,
+        color: {
+          dark: '#2d1b3d', // Dark purple from our theme
+          light: '#ffffff'
+        },
+        errorCorrectionLevel: 'H' // High error correction for embedded images
+      });
+      setQrDataUrl(dataUrl);
+    } catch (error) {
+      console.error('Error generating QR code:', error);
+    }
+  };
+
+  const copyUrl = () => {
+    navigator.clipboard.writeText(qrUrl);
+    toast({
+      title: 'URL Copied!',
+      description: 'The link has been copied to your clipboard.',
+    });
+  };
+
+  const downloadQR = () => {
+    const link = document.createElement('a');
+    link.download = `${heroId}-qr-code.png`;
+    link.href = qrDataUrl;
+    link.click();
+    
+    toast({
+      title: 'QR Code Downloaded!',
+      description: 'The QR code has been saved to your device.',
+    });
+  };
+
+  const exportPDF = () => {
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    
+    // Center the content
+    const qrSizeMm = 50; // 50mm square
+    const x = (pageWidth - qrSizeMm) / 2;
+    const y = (pageHeight - qrSizeMm) / 2 - 20;
+    
+    // Add title
+    pdf.setFontSize(20);
+    pdf.setTextColor(45, 27, 61); // Our dark purple
+    const titleWidth = pdf.getTextWidth(heroName);
+    pdf.text(heroName, (pageWidth - titleWidth) / 2, y - 10);
+    
+    // Add QR code
+    if (qrDataUrl) {
+      pdf.addImage(qrDataUrl, 'PNG', x, y, qrSizeMm, qrSizeMm);
+    }
+    
+    // Add tagline
+    pdf.setFontSize(12);
+    const tagline = `Scan to learn about ${heroName}`;
+    const taglineWidth = pdf.getTextWidth(tagline);
+    pdf.text(tagline, (pageWidth - taglineWidth) / 2, y + qrSizeMm + 15);
+    
+    // Add website URL
+    pdf.setFontSize(10);
+    pdf.setTextColor(100, 100, 100);
+    const urlWidth = pdf.getTextWidth('ScanSheCan.app');
+    pdf.text('ScanSheCan.app', (pageWidth - urlWidth) / 2, y + qrSizeMm + 25);
+    
+    pdf.save(`${heroId}-sticker.pdf`);
+    
+    toast({
+      title: 'PDF Generated!',
+      description: 'Your printable sticker is ready.',
+    });
+  };
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <span>Share {heroName}</span>
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-6">
+        <div className="text-center">
+          {qrDataUrl && (
+            <div className="inline-block p-4 bg-white rounded-lg shadow-sm">
+              <img 
+                src={qrDataUrl} 
+                alt={`QR code for ${heroName}`}
+                className="mx-auto"
+                style={{ width: qrSize + 'px', height: qrSize + 'px' }}
+              />
+            </div>
+          )}
+          <p className="mt-4 text-sm text-muted-foreground">
+            Scan to learn about {heroName}
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          <div>
+            <label className="text-sm font-medium mb-2 block">QR Code Size</label>
+            <Select value={qrSize} onValueChange={setQrSize}>
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="128">Small (128px)</SelectItem>
+                <SelectItem value="256">Medium (256px)</SelectItem>
+                <SelectItem value="512">Large (512px)</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-2">
+            <Button variant="outline" onClick={copyUrl} className="flex-1">
+              <Copy className="w-4 h-4 mr-2" />
+              Copy URL
+            </Button>
+            <Button variant="outline" onClick={downloadQR} className="flex-1">
+              <Download className="w-4 h-4 mr-2" />
+              Download QR
+            </Button>
+            <Button onClick={exportPDF} variant="gradient" className="flex-1">
+              <FileText className="w-4 h-4 mr-2" />
+              Print Sticker
+            </Button>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
