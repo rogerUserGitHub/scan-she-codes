@@ -51,6 +51,18 @@ import emmaGoldmanImg from '@/assets/emma-goldman.jpg';
 import hannahArendtImg from '@/assets/hannah-arendt.jpg';
 import ruthBaderGinsburgImg from '@/assets/ruth-bader-ginsburg.jpg';
 import sophieSchollImg from '@/assets/sophie-scholl.jpg';
+import rosalindFranklinImg from '@/assets/rosalind-franklin.jpg';
+import harrietBeecherStoweImg from '@/assets/harriet-beecher-stowe.jpg';
+import empressCixiImg from '@/assets/empress-cixi.jpg';
+import jocelynBellBurnellImg from '@/assets/jocelyn-bell-burnell.jpg';
+import emilyDickinsonImg from '@/assets/emily-dickinson.jpg';
+import mayaYoshidaImg from '@/assets/maya-yoshida.jpg';
+import nellieBlyImg from '@/assets/nellie-bly.jpg';
+import agnesMacphailImg from '@/assets/agnes-macphail.jpg';
+import valentinaKulaginaImg from '@/assets/valentina-kulagina.jpg';
+import amalClooneyImg from '@/assets/amal-clooney.jpg';
+import dorothyHodgkinImg from '@/assets/dorothy-hodgkin.jpg';
+import adaDeranaImg from '@/assets/ada-derana.jpg';
 
 export interface Hero {
   id: string;
@@ -874,7 +886,7 @@ const allHeroes: Hero[] = [
       'Contributed to the development of algebra and geometry',
       'Martyred for her philosophical beliefs',
     ],
-    imageUrl: 'hypatiaImg',
+    imageUrl: hypatiaImg,
   },
   {
     id: 'harriet-tubman',
@@ -892,7 +904,7 @@ const allHeroes: Hero[] = [
       'Spy for the Union Army during the Civil War',
       "Advocated for women's voting rights",
     ],
-    imageUrl: 'harrietTubmanImg',
+    imageUrl: harrietTubmanImg,
   },
   {
     id: 'frida-kahlo',
@@ -910,7 +922,7 @@ const allHeroes: Hero[] = [
       'Married Diego Rivera',
       'Inspired feminist art worldwide',
     ],
-    imageUrl: 'fridaKahloImg',
+    imageUrl: fridaKahloImg,
   },
   {
     id: 'rosalind-franklin',
@@ -928,7 +940,7 @@ const allHeroes: Hero[] = [
       'Contributed to understanding of viruses and coal',
       'Pioneered crystallography techniques',
     ],
-    imageUrl: 'rosalindFranklinImg',
+    imageUrl: rosalindFranklinImg,
   },
   {
     id: 'harriet-beecher-stowe',
@@ -945,7 +957,7 @@ const allHeroes: Hero[] = [
       "Advocate for abolition and women's rights",
       'Influenced public opinion on slavery',
     ],
-    imageUrl: 'harrietBeecherStoweImg',
+    imageUrl: harrietBeecherStoweImg,
   },
   {
     id: 'ada-lovelace',
@@ -962,7 +974,7 @@ const allHeroes: Hero[] = [
       'Published notes on the Analytical Engine',
       'Inspired modern computer science',
     ],
-    imageUrl: 'adaLovelaceImg',
+    imageUrl: adaLovelaceImg,
   },
   {
     id: 'ida-s-wells',
@@ -979,7 +991,7 @@ const allHeroes: Hero[] = [
       'Co-founded NAACP',
       'Advocated for African American women’s rights',
     ],
-    imageUrl: 'idaBWellsImg',
+    imageUrl: idaBWellsImg,
   },
   {
     id: 'empress-cixi',
@@ -997,7 +1009,7 @@ const allHeroes: Hero[] = [
       'Initiated the Self-Strengthening Movement',
       'Modernized parts of China',
     ],
-    imageUrl: 'empressCixiImg',
+    imageUrl: empressCixiImg,
   },
   {
     id: 'valentina-tereshkova',
@@ -1014,7 +1026,7 @@ const allHeroes: Hero[] = [
       'Orbited Earth 48 times',
       'Later a prominent politician in Russia',
     ],
-    imageUrl: 'valentinaTereshkovaImg',
+    imageUrl: valentinaTereshkovaImg,
   },
   {
     id: 'jocelyn-bell-burnell',
@@ -1032,7 +1044,7 @@ const allHeroes: Hero[] = [
       'Led astrophysics research at several universities',
       'Advocate for women in science',
     ],
-    imageUrl: 'jocelynBellBurnellImg',
+    imageUrl: jocelynBellBurnellImg,
   },
   {
     id: 'marie-curie',
@@ -1049,7 +1061,7 @@ const allHeroes: Hero[] = [
       'Nobel Prize in Chemistry, 1911',
       'First female professor at the University of Paris',
     ],
-    imageUrl: 'marieCurieImg',
+    imageUrl: marieCurieImg,
   },
   {
     id: 'sojourner-truth',
@@ -1067,7 +1079,7 @@ const allHeroes: Hero[] = [
       'Delivered powerful abolitionist speeches',
       "Promoted women's suffrage",
     ],
-    imageUrl: 'sojournerTruthImg',
+    imageUrl: sojournerTruthImg,
   },
   {
     id: 'emily-dickinson',
@@ -1085,7 +1097,7 @@ const allHeroes: Hero[] = [
       'Published very few in lifetime',
       'Became one of America’s greatest poets',
     ],
-    imageUrl: 'emilyDickinsonImg',
+    imageUrl: emilyDickinsonImg,
   },
   {
     id: 'maya-yoshida',
@@ -1102,7 +1114,7 @@ const allHeroes: Hero[] = [
       'Played in Premier League',
       'Olympic participant',
     ],
-    imageUrl: 'mayaYoshidaImg',
+    imageUrl: mayaYoshidaImg,
   },
   {
     id: 'emily-pankhurst',
@@ -1119,7 +1131,7 @@ const allHeroes: Hero[] = [
       'Imprisoned multiple times for activism',
       "Helped secure partial women's suffrage in 1918",
     ],
-    imageUrl: 'emmelinePankhurstImg',
+    imageUrl: emmelinePankhurstImg,
   },
   {
     id: 'sophie-scholl',
@@ -1153,7 +1165,7 @@ const allHeroes: Hero[] = [
       'First woman to circumnavigate globe alone',
       'Advocate for social reform',
     ],
-    imageUrl: 'nellieBlyImg',
+    imageUrl: nellieBlyImg,
   },
   {
     id: 'agnes-macphail',
@@ -1170,7 +1182,7 @@ const allHeroes: Hero[] = [
       'Supported farmers and labour rights',
       'Promoted peace and disarmament',
     ],
-    imageUrl: 'agnesMacphailImg',
+    imageUrl: agnesMacphailImg,
   },
   {
     id: 'valentina-kulagina',
@@ -1187,7 +1199,7 @@ const allHeroes: Hero[] = [
       'Collaborated with Constructivist artists',
       'Featured in major Soviet exhibitions',
     ],
-    imageUrl: 'valentinaKulaginaImg',
+    imageUrl: valentinaKulaginaImg,
   },
   {
     id: 'katherine-johnson',
@@ -1204,7 +1216,7 @@ const allHeroes: Hero[] = [
       'Awarded Presidential Medal of Freedom',
       "Inspired the film 'Hidden Figures'",
     ],
-    imageUrl: 'katherineJohnsonImg',
+    imageUrl: katherineJohnsonImg,
   },
   {
     id: 'wangari-maathai',
@@ -1221,7 +1233,7 @@ const allHeroes: Hero[] = [
       'Established Green Belt Movement',
       'First woman in East Africa to earn PhD',
     ],
-    imageUrl: 'wangariMaathaiImg',
+    imageUrl: wangariMaathaiImg,
   },
   {
     id: 'ruth-bader-ginsburg',
@@ -1238,7 +1250,7 @@ const allHeroes: Hero[] = [
       'Appointed to Supreme Court in 1993',
       'Became a cultural icon',
     ],
-    imageUrl: 'ruthBaderGinsburgImg',
+    imageUrl: ruthBaderGinsburgImg,
   },
   {
     id: 'amal-clooney',
@@ -1255,7 +1267,7 @@ const allHeroes: Hero[] = [
       'Co-founded Clooney Foundation for Justice',
       'Advocate for press freedom',
     ],
-    imageUrl: 'amalClooneyImg',
+    imageUrl: amalClooneyImg,
   },
   {
     id: 'dorothy-hodgkin',
@@ -1272,7 +1284,7 @@ const allHeroes: Hero[] = [
       'Developed crystallography techniques',
       'Mentored future scientists',
     ],
-    imageUrl: 'dorothyHodgkinImg',
+    imageUrl: dorothyHodgkinImg,
   },
   {
     id: 'maya-angelou',
@@ -1289,7 +1301,7 @@ const allHeroes: Hero[] = [
       'Advisor to U.S. presidents',
       'Received Presidential Medal of Freedom',
     ],
-    imageUrl: 'mayaAngelouImg',
+    imageUrl: mayaAngelouImg,
   },
   {
     id: 'malala-yousafzai',
@@ -1307,7 +1319,7 @@ const allHeroes: Hero[] = [
       'Founded Malala Fund',
       'Addressed UN on education rights',
     ],
-    imageUrl: 'malalaYousafzaiImg',
+    imageUrl: malalaYousafzaiImg,
   },
   {
     id: 'ada-derana',
@@ -1324,7 +1336,7 @@ const allHeroes: Hero[] = [
       'Advocated for media freedom',
       'Recipient of journalism awards',
     ],
-    imageUrl: 'adaDeranaImg',
+    imageUrl: adaDeranaImg,
   },
   {
     id: 'simone-de-beauvoir',
@@ -1341,7 +1353,7 @@ const allHeroes: Hero[] = [
       'Partnered with Jean-Paul Sartre',
       'Influenced feminist and existential thought',
     ],
-    imageUrl: 'simoneDeBeauvoirImg',
+    imageUrl: simoneDeBeauvoirImg,
   },
   {
     id: 'ida-b-wells',
@@ -1358,7 +1370,7 @@ const allHeroes: Hero[] = [
       'Co-founded NAACP',
       'Advocated for women’s suffrage',
     ],
-    imageUrl: 'idaBWellsImg',
+    imageUrl: idaBWellsImg,
   },
   {
     id: 'agnes-macphail',
@@ -1374,7 +1386,7 @@ const allHeroes: Hero[] = [
       'Promoted social justice',
       'Supported peace movements',
     ],
-    imageUrl: 'agnesMacphailImg',
+    imageUrl: agnesMacphailImg,
   },
   {
     id: 'sojourner-truth',
