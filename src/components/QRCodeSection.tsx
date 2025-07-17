@@ -29,6 +29,9 @@ export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionP
     try {
       const size = parseInt(qrSize);
       
+      // Debug: Log the URL being encoded
+      console.log('QR Code URL:', qrUrl);
+      
       // Generate the base QR code with hex colors
       const qrDataUrl = await QRCode.toDataURL(qrUrl, {
         width: size,
@@ -60,7 +63,7 @@ export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionP
       
       ctx.drawImage(qrImg, 0, 0, size, size);
 
-      // Add hero image in center
+      // Add hero image in center - make it smaller to preserve QR functionality
       const heroImg = new Image();
       heroImg.crossOrigin = 'anonymous';
       await new Promise((resolve) => {
@@ -68,16 +71,21 @@ export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionP
         heroImg.src = heroImageUrl;
       });
 
-      // Create circular crop for hero image
-      const centerSize = size * 0.2; // 20% of QR code size
+      // Create circular crop for hero image - reduced size from 20% to 12%
+      const centerSize = size * 0.12; // 12% of QR code size for better scanning
       const centerX = size / 2;
       const centerY = size / 2;
       
-      // Draw white circle background
+      // Draw white circle background with border
       ctx.fillStyle = '#ffffff';
       ctx.beginPath();
-      ctx.arc(centerX, centerY, centerSize / 2 + 4, 0, 2 * Math.PI);
+      ctx.arc(centerX, centerY, centerSize / 2 + 3, 0, 2 * Math.PI);
       ctx.fill();
+      
+      // Add border around the circle
+      ctx.strokeStyle = '#2d9cdb';
+      ctx.lineWidth = 2;
+      ctx.stroke();
 
       // Draw hero image in circle
       ctx.save();
@@ -95,7 +103,7 @@ export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionP
 
       // Add hero name at bottom
       ctx.fillStyle = '#2d9cdb'; // Teal color in hex
-      ctx.font = 'bold 16px system-ui, -apple-system, sans-serif';
+      ctx.font = 'bold 14px system-ui, -apple-system, sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText(heroName, size / 2, size + 25);
 
@@ -151,7 +159,7 @@ export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionP
     
     // Add title
     pdf.setFontSize(20);
-    pdf.setTextColor(45, 27, 61); // Our dark purple
+    pdf.setTextColor(45, 156, 219); // Teal color in RGB
     const titleWidth = pdf.getTextWidth(heroName);
     pdf.text(heroName, (pageWidth - titleWidth) / 2, y - 10);
     
