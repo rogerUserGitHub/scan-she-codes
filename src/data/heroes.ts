@@ -24,7 +24,6 @@ import janeAddamsImg from '@/assets/jane-addams.jpg';
 import rosaParksImg from '@/assets/rosa-parks.jpg';
 import simoneDeBeauvoirImg from '@/assets/simone-de-beauvoir.jpg';
 import emilyDavisonImg from '@/assets/emily-davison.jpg';
-// Removed duplicate emmeline pankhurst import
 import rachelCarsonImg from '@/assets/rachel-carson.jpg';
 import anneFrankImg from '@/assets/anne-frank.jpg';
 import valentinaTereshkovaImg from '@/assets/valentina-tereshkova.jpg';
@@ -63,6 +62,25 @@ import valentinaKulaginaImg from '@/assets/valentina-kulagina.jpg';
 import amalClooneyImg from '@/assets/amal-clooney.jpg';
 import dorothyHodgkinImg from '@/assets/dorothy-hodgkin.jpg';
 import adaDeranaImg from '@/assets/ada-derana.jpg';
+import janeAustenImg from '@/assets/jane-austen.jpg';
+import oprahWinfreyImg from '@/assets/oprah-winfrey.jpg';
+import pocahontasImg from '@/assets/pocahontas.jpg';
+import corazonAquinoImg from '@/assets/corazon-aquino.jpg';
+import sarojiniNaiduImg from '@/assets/sarojini-naidu.jpg';
+import miriamMakebaImg from '@/assets/miriam-makeba.jpg';
+import margaretEkpoImg from '@/assets/margaret-ekpo.jpg';
+import queenNzingaImg from '@/assets/queen-nzinga.jpg';
+import whinaCooperImg from '@/assets/whina-cooper.jpg';
+import katherineMansfieldImg from '@/assets/katherine-mansfield.jpg';
+import benazirBhuttoImg from '@/assets/benazir-bhutto.jpg';
+import chienShiungWuImg from '@/assets/chien-shiung-wu.jpg';
+import evaPeronImg from '@/assets/eva-peron.jpg';
+import doloresHuertaImg from '@/assets/dolores-huerta.jpg';
+import gabrielaMistralImg from '@/assets/gabriela-mistral.jpg';
+import ellenOchoaImg from '@/assets/ellen-ochoa.jpg';
+import manuelaSaenzImg from '@/assets/manuela-saenz.jpg';
+import soniaSotomayorImg from '@/assets/sonia-sotomayor.jpg';
+import sorJuanaInesImg from '@/assets/sor-juana-ines.jpg';
 
 export interface Hero {
   id: string;
@@ -1855,6 +1873,313 @@ const allHeroes: Hero[] = [
     ],
     imageUrl: emmaGoldmanImg,
   },
+  {
+    id: 'jane-austen',
+    name: 'Jane Austen',
+    category: 'Literature',
+    region: 'Europe',
+    interest: 'Literature',
+    lifespan: '1775–1817',
+    shortBio: 'English novelist known for her sharp social commentary and realism.',
+    detailedBio:
+      'Jane Austen was an English novelist whose works, including "Pride and Prejudice" and "Emma", critique the British landed gentry and explore the dependence of women on marriage in the 18th century.',
+    milestones: [
+      '1811: Published "Sense and Sensibility"',
+      '1813: Released "Pride and Prejudice", her most famous work',
+      '1815: Published "Emma", a mature social critique',
+    ],
+    imageUrl: janeAustenImg,
+  },
+  {
+    id: 'oprah-winfrey',
+    name: 'Oprah Winfrey',
+    category: 'Media & Activism',
+    region: 'North America',
+    interest: 'Rights Activism',
+    lifespan: '1954–',
+    shortBio: 'Media mogul and philanthropist who broke barriers in television and advocacy.',
+    detailedBio:
+      'Oprah Winfrey is an American talk show host, producer, actress, author, and philanthropist. She became the first Black female billionaire and has used her platform to champion social causes and self-empowerment.',
+    milestones: [
+      '1986: The Oprah Winfrey Show launched nationally',
+      '2007: Opened Oprah Winfrey Leadership Academy for Girls in South Africa',
+      '2013: Received the Presidential Medal of Freedom',
+    ],
+    imageUrl: oprahWinfreyImg,
+  },
+  {
+    id: 'pocahontas',
+    name: 'Pocahontas',
+    category: 'Cultural Diplomacy',
+    region: 'North America',
+    interest: 'Social Work',
+    lifespan: 'c.1596–1617',
+    shortBio: 'Native American figure known for her role in early colonial diplomacy.',
+    detailedBio:
+      'Pocahontas was a Powhatan woman notable for her association with the colonial settlement at Jamestown, Virginia. Her involvement helped foster peace between English settlers and Native Americans.',
+    milestones: [
+      '1607: Famously intervened to save Captain John Smith (disputed)',
+      '1614: Married English settler John Rolfe',
+      '1616: Traveled to England and met King James I',
+    ],
+    imageUrl: pocahontasImg,
+  },
+  {
+    id: 'corazon-aquino',
+    name: 'Corazon Aquino',
+    category: 'Politics',
+    region: 'Asia',
+    interest: 'Politics',
+    lifespan: '1933–2009',
+    shortBio: 'First female President of the Philippines and symbol of democratic transition.',
+    detailedBio:
+      'Corazon Aquino led the 1986 People Power Revolution in the Philippines, ending authoritarian rule. She became the 11th president and the first woman to hold that office in the country.',
+    milestones: [
+      '1986: Became President after peaceful revolution',
+      '1992: Stepped down after a full term, strengthening democracy',
+    ],
+    imageUrl: corazonAquinoImg,
+  },
+  {
+    id: 'sarojini-naidu',
+    name: 'Sarojini Naidu',
+    category: 'Politics & Poetry',
+    region: 'Asia',
+    interest: 'Rights Activism',
+    lifespan: '1879–1949',
+    shortBio: 'Indian independence activist and the first female president of the Indian National Congress.',
+    detailedBio:
+      'Known as the "Nightingale of India", Naidu was a poet and a prominent leader in India’s struggle for independence, also becoming the first woman to serve as a governor in independent India.',
+    milestones: [
+      '1925: Elected president of the Indian National Congress',
+      '1947: Became governor of Uttar Pradesh',
+    ],
+    imageUrl: sarojiniNaiduImg,
+  },
+  {
+    id: 'miriam-makeba',
+    name: 'Miriam Makeba',
+    category: 'Music & Activism',
+    region: 'Africa',
+    interest: 'Music',
+    lifespan: '1932–2008',
+    shortBio: 'South African singer and civil rights activist known as "Mama Africa."',
+    detailedBio:
+      'Miriam Makeba used her musical fame to raise awareness of apartheid, becoming a UN delegate and enduring exile for her outspoken stance. Her music fused jazz and traditional African melodies.',
+    milestones: [
+      '1963: Testified against apartheid at the UN',
+      '1987: Returned to South Africa after exile',
+    ],
+    imageUrl: miriamMakebaImg,
+  },
+  {
+    id: 'margaret-ekpo',
+    name: 'Margaret Ekpo',
+    category: 'Politics',
+    region: 'Africa',
+    interest: 'Politics',
+    lifespan: '1914–2006',
+    shortBio: 'Pioneering Nigerian politician and women’s rights advocate.',
+    detailedBio:
+      'Margaret Ekpo was a trailblazer in Nigerian politics, becoming one of the country’s first female legislators. She campaigned for women’s rights and civil participation in postcolonial Nigeria.',
+    milestones: [
+      '1954: Elected to the Eastern House of Assembly',
+      '1960s: Led market women’s associations in protests and political action',
+    ],
+    imageUrl: margaretEkpoImg,
+  },
+  {
+    id: 'queen-nzinga',
+    name: 'Queen Nzinga of Ndongo and Matamba',
+    category: 'Politics & Resistance',
+    region: 'Africa',
+    interest: 'Politics',
+    lifespan: 'c.1583–1663',
+    shortBio: 'Queen who resisted Portuguese colonization in Central Africa.',
+    detailedBio:
+      'Queen Nzinga was a warrior and diplomat who led the Ndongo and Matamba kingdoms (now Angola) in resistance against the Portuguese. She negotiated, fought, and allied to protect her people’s sovereignty.',
+    milestones: [
+      '1624: Became queen after her brother’s death',
+      '1641: Formed alliance with Dutch to fight Portuguese',
+    ],
+    imageUrl: queenNzingaImg,
+  },
+  {
+    id: 'whina-cooper',
+    name: 'Whina Cooper',
+    category: 'Indigenous Rights',
+    region: 'Oceania',
+    interest: 'Rights Activism',
+    lifespan: '1895–1994',
+    shortBio: 'Maori leader and activist for land and indigenous rights in New Zealand.',
+    detailedBio:
+      'Whina Cooper was a respected elder and community leader in Aotearoa (New Zealand). She led the famous 1975 land march, advocating for Maori land rights and cultural preservation.',
+    milestones: [
+      '1951: First president of the Maori Women’s Welfare League',
+      '1975: Led the Māori Land March from Northland to Wellington',
+    ],
+    imageUrl: whinaCooperImg,
+  },
+  {
+    id: 'katherine-mansfield',
+    name: 'Katherine Mansfield',
+    category: 'Literature',
+    region: 'Oceania',
+    interest: 'Literature',
+    lifespan: '1888–1923',
+    shortBio: 'Innovative modernist writer from New Zealand.',
+    detailedBio:
+      'Katherine Mansfield was a pioneer of the modern short story. Her psychologically nuanced narratives influenced 20th-century literature, often exploring identity, gender, and social class.',
+    milestones: [
+      '1911: Published first collection, "In a German Pension"',
+      '1922: Released acclaimed "The Garden Party"',
+    ],
+    imageUrl: katherineMansfieldImg,
+  },
+  {
+    id: 'benazir-bhutto',
+    name: 'Benazir Bhutto',
+    category: 'Politics',
+    region: 'Asia',
+    interest: 'Politics',
+    lifespan: '1953–2007',
+    shortBio: 'First woman to lead a Muslim-majority country as Prime Minister of Pakistan.',
+    detailedBio:
+      'Benazir Bhutto was twice elected Prime Minister of Pakistan and was a symbol of democratic reform and women’s empowerment in the Muslim world. Her assassination in 2007 shocked the globe.',
+    milestones: [
+      '1988: Became Prime Minister of Pakistan',
+      '1993: Re-elected after a military ousting',
+    ],
+    imageUrl: benazirBhuttoImg,
+  },
+  {
+    id: 'chien-shiung-wu',
+    name: 'Chien-Shiung Wu',
+    category: 'Science',
+    region: 'Asia',
+    interest: 'Science',
+    lifespan: '1912–1997',
+    shortBio: 'Chinese-American physicist who made key contributions to nuclear physics.',
+    detailedBio:
+      'Chien-Shiung Wu conducted groundbreaking experiments in beta decay, disproving a fundamental law of physics. She contributed to the Manhattan Project and was overlooked for the Nobel Prize.',
+    milestones: [
+      '1944: Joined Manhattan Project',
+      '1956: Conducted Wu Experiment, disproving parity conservation',
+    ],
+    imageUrl: chienShiungWuImg,
+  },
+  {
+    id: 'eva-peron',
+    name: 'Eva Perón',
+    category: 'Politics',
+    region: 'South America',
+    interest: 'Politics',
+    lifespan: '1919–1952',
+    shortBio: 'First Lady of Argentina who championed labor rights and women’s suffrage.',
+    detailedBio: 'Eva Perón, also known as Evita, was the First Lady of Argentina from 1946 until her death in 1952. She was a powerful advocate for labor rights and played a key role in the passage of women’s suffrage in Argentina. She remains a controversial and beloved figure in Argentine history.',
+    milestones: [
+      '1946: Became First Lady of Argentina',
+      '1947: Helped pass women’s suffrage law',
+      '1948: Founded the Eva Perón Foundation',
+    ],
+    imageUrl: evaPeronImg,
+  },
+  {
+    id: 'dolores-huerta',
+    name: 'Dolores Huerta',
+    category: 'Rights Activism',
+    region: 'North America',
+    interest: 'Rights Activism',
+    lifespan: '1930–',
+    shortBio: 'American labor leader and civil rights activist who co-founded the United Farm Workers.',
+    detailedBio: 'Dolores Huerta is a prominent American labor leader and civil rights activist. Along with César Chávez, she co-founded the United Farm Workers (UFW). She coined the phrase "Sí, se puede" and has been an outspoken advocate for workers’, immigrants’, and women’s rights.',
+    milestones: [
+      '1962: Co-founded United Farm Workers',
+      '1965: Led grape strike in Delano, California',
+      '2012: Received the Presidential Medal of Freedom',
+    ],
+    imageUrl: doloresHuertaImg,
+  },
+  {
+    id: 'gabriela-mistral',
+    name: 'Gabriela Mistral',
+    category: 'Literature',
+    region: 'South America',
+    interest: 'Literature',
+    lifespan: '1889–1957',
+    shortBio: 'First Latin American author to receive the Nobel Prize in Literature.',
+    detailedBio: 'Gabriela Mistral was a Chilean poet, educator, and diplomat. She was the first Latin American to win the Nobel Prize in Literature in 1945. Her work often focused on themes of love, sorrow, and Latin American identity.',
+    milestones: [
+      '1922: Published influential poetry collection "Desolación"',
+      '1945: Won Nobel Prize in Literature',
+      'Served as diplomat in multiple countries',
+    ],
+    imageUrl: gabrielaMistralImg,
+  },
+  {
+    id: 'ellen-ochoa',
+    name: 'Ellen Ochoa',
+    category: 'Space Exploration',
+    region: 'North America',
+    interest: 'Space Exploration',
+    lifespan: '1958–',
+    shortBio: 'First Hispanic woman in space and former Director of the Johnson Space Center.',
+    detailedBio: 'Ellen Ochoa is an American engineer, former astronaut, and the first Hispanic woman to go to space. She flew aboard the Space Shuttle Discovery in 1993. She later served as Director of NASA’s Johnson Space Center.',
+    milestones: [
+      '1993: First spaceflight aboard Space Shuttle Discovery',
+      '2013: Appointed Director of Johnson Space Center',
+      'Logged nearly 1,000 hours in space',
+    ],
+    imageUrl: ellenOchoaImg,
+  },
+  {
+    id: 'manuela-saenz',
+    name: 'Manuela Sáenz',
+    category: 'Politics',
+    region: 'South America',
+    interest: 'Politics',
+    lifespan: '1797–1856',
+    shortBio: 'Revolutionary and spy who supported Simón Bolívar’s fight for independence.',
+    detailedBio: 'Manuela Sáenz was an Ecuadorian revolutionary who played a vital role in the South American struggle for independence from Spain. She was also a close ally and romantic partner of Simón Bolívar, and saved his life on more than one occasion.',
+    milestones: [
+      '1822: Met Simón Bolívar and joined independence efforts',
+      '1828: Saved Bolívar from assassination',
+      'Posthumously honored as a national hero',
+    ],
+    imageUrl: manuelaSaenzImg,
+  },
+  {
+    id: 'sonia-sotomayor',
+    name: 'Sonia Sotomayor',
+    category: 'Law',
+    region: 'North America',
+    interest: 'Law',
+    lifespan: '1954–',
+    shortBio: 'First Hispanic and third woman appointed to the U.S. Supreme Court.',
+    detailedBio: 'Sonia Sotomayor is an Associate Justice of the U.S. Supreme Court, appointed in 2009 by President Barack Obama. She is the first Hispanic and Latina member of the Court and is known for her strong stances on civil rights and justice reform.',
+    milestones: [
+      '1998: Appointed to U.S. Court of Appeals',
+      '2009: Confirmed to U.S. Supreme Court',
+      'Published memoir "My Beloved World"',
+    ],
+    imageUrl: soniaSotomayorImg,
+  },
+  {
+    id: 'sor-juana-ines',
+    name: 'Sor Juana Inés de la Cruz',
+    category: 'Literature',
+    region: 'North America',
+    interest: 'Literature',
+    lifespan: '1648–1695',
+    shortBio: 'Mexican nun, poet, and philosopher who advocated for women’s education.',
+    detailedBio: 'Sor Juana Inés de la Cruz was a self-taught scholar and poet of the Baroque period in Mexico. She is considered one of the earliest feminist voices in the Americas, known for her literary work and defense of women’s rights to education.',
+    milestones: [
+      '1671: Entered the convent of San Jerónimo',
+      '1689: Published “Respuesta a Sor Filotea”, a defense of women’s education',
+      'Posthumously recognized as a literary icon and feminist pioneer',
+    ],
+    imageUrl: sorJuanaInesImg,
+  }
 ];
 
 // Remove duplicates and export unique heroes array
