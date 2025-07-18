@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, Suspense } from 'react';
 import { HeroCard } from '@/components/HeroCard';
 import { FilterBar } from '@/components/FilterBar';
 import { Input } from '@/components/ui/input';
@@ -113,9 +113,26 @@ const Index = () => {
 
         {/* Hero Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
-          {paginatedHeroes.map((hero) => (
-            <HeroCard key={hero.id} hero={hero} />
-          ))}
+          {paginatedHeroes.length === 0 ? (
+            // Loading skeletons
+            Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="bg-gradient-card rounded-lg shadow-card overflow-hidden w-full h-80 animate-pulse">
+                <div className="h-48 bg-muted"></div>
+                <div className="p-4 space-y-2">
+                  <div className="h-4 bg-muted rounded w-3/4"></div>
+                  <div className="h-3 bg-muted rounded w-1/2"></div>
+                  <div className="flex justify-between mt-4">
+                    <div className="h-3 bg-muted rounded w-1/3"></div>
+                    <div className="h-3 bg-muted rounded w-1/4"></div>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            paginatedHeroes.map((hero) => (
+              <HeroCard key={hero.id} hero={hero} />
+            ))
+          )}
         </div>
 
         {/* Pagination */}

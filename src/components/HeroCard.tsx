@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Hero } from '@/data/heroes';
+import { LazyImage } from '@/components/LazyImage';
 
 interface HeroCardProps {
   hero: Hero;
@@ -10,7 +11,7 @@ export const HeroCard = ({ hero }: HeroCardProps) => {
     <Link to={`/heroes/${hero.id}`} className="block group">
       <div className="bg-gradient-card rounded-lg shadow-card group-hover:shadow-card-hover transition-all duration-300 overflow-hidden w-full h-80">
         <div className="relative h-48 overflow-hidden">
-          <img
+          <LazyImage
             src={hero.imageUrl}
             alt={hero.name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
