@@ -54,9 +54,7 @@ export const Navigation = () => {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">S</span>
-          </div>
+          <img src="/logo.png" alt="ScanSheCan" className="w-8 h-8" />
           <span className="font-bold text-xl bg-gradient-primary bg-clip-text text-transparent">
             ScanSheCan
           </span>

@@ -1,4 +1,4 @@
-import { useState, useMemo, Suspense } from 'react';
+import { useMemo, Suspense } from 'react';
 import { HeroCard } from '@/components/HeroCard';
 import { FilterBar } from '@/components/FilterBar';
 import { Input } from '@/components/ui/input';
@@ -13,12 +13,19 @@ import {
 } from '@/components/ui/pagination';
 import { heroes } from '@/data/heroes';
 import heroBanner from '@/assets/hero-banner.jpg';
+import { useFilterState } from '@/hooks/use-filter-state';
 
 const Index = () => {
-  const [selectedRegion, setSelectedRegion] = useState('All Regions');
-  const [selectedInterest, setSelectedInterest] = useState('All Interests');
-  const [searchName, setSearchName] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
+  const {
+    selectedRegion,
+    selectedInterest,
+    searchName,
+    currentPage,
+    handleRegionChange,
+    handleInterestChange,
+    handleSearchChange,
+    handlePageChange,
+  } = useFilterState();
   
   const ITEMS_PER_PAGE = 20;
 
@@ -39,11 +46,7 @@ const Index = () => {
     return filteredHeroes.slice(startIndex, endIndex);
   }, [filteredHeroes, currentPage]);
 
-  // Reset to page 1 when filters change
-  const handleFilterChange = (filterFn: () => void) => {
-    filterFn();
-    setCurrentPage(1);
-  };
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -86,7 +89,7 @@ const Index = () => {
               type="text"
               placeholder="Search heroes by name..."
               value={searchName}
-              onChange={(e) => handleFilterChange(() => setSearchName(e.target.value))}
+              onChange={(e) => handleSearchChange(e.target.value)}
               className="max-w-md"
             />
           </div>
@@ -94,8 +97,8 @@ const Index = () => {
           <FilterBar
             selectedRegion={selectedRegion}
             selectedInterest={selectedInterest}
-            onRegionChange={(region) => handleFilterChange(() => setSelectedRegion(region))}
-            onInterestChange={(interest) => handleFilterChange(() => setSelectedInterest(interest))}
+            onRegionChange={handleRegionChange}
+            onInterestChange={handleInterestChange}
           />
         </div>
 
@@ -145,7 +148,7 @@ const Index = () => {
                     href="#"
                     onClick={(e) => {
                       e.preventDefault();
-                      if (currentPage > 1) setCurrentPage(currentPage - 1);
+                      if (currentPage > 1) handlePageChange(currentPage - 1);
                     }}
                     className={currentPage === 1 ? 'pointer-events-none opacity-50' : ''}
                   />
@@ -170,7 +173,7 @@ const Index = () => {
                         href="#"
                         onClick={(e) => {
                           e.preventDefault();
-                          setCurrentPage(pageNum);
+                          handlePageChange(pageNum);
                         }}
                         isActive={currentPage === pageNum}
                         className="min-w-[40px]"
@@ -193,7 +196,7 @@ const Index = () => {
                     href="#"
                     onClick={(e) => {
                       e.preventDefault();
-                      if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+                      if (currentPage < totalPages) handlePageChange(currentPage + 1);
                     }}
                     className={currentPage === totalPages ? 'pointer-events-none opacity-50' : ''}
                   />

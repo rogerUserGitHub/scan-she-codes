@@ -31,7 +31,6 @@ import malintzinImg from '@/assets/malintzin.jpg';
 import harrietTubmanImg from '@/assets/harriet-tubman.jpg';
 import janeGoodallImg from '@/assets/jane-goodall.jpg';
 import eleanorRooseveltImg from '@/assets/eleanor-roosevelt.jpg';
-import goldaMeirImg from '@/assets/golda-meir.jpg';
 import simoneBilesImg from '@/assets/simone-biles.jpg';
 import audreLordeImg from '@/assets/audre-lorde.jpg';
 import rigobertaMenchuImg from '@/assets/rigoberta-menchu.jpg';
@@ -81,6 +80,12 @@ import ellenOchoaImg from '@/assets/ellen-ochoa.jpg';
 import manuelaSaenzImg from '@/assets/manuela-saenz.jpg';
 import soniaSotomayorImg from '@/assets/sonia-sotomayor.jpg';
 import sorJuanaInesImg from '@/assets/sor-juana-ines.jpg';
+import leilaKhaledImg from '@/assets/leila-khaled.jpg';
+import hananAshrawiImg from '@/assets/hanan-ashrawi.jpg';
+import fatimaAlFihriImg from '@/assets/fatima-al-fihri.jpg';
+import queenZenobiaImg from '@/assets/queen-zenobia.jpg';
+import hudaShaarawiImg from '@/assets/huda-shaarawi.jpg';
+import nabawiyyaMusaImg from '@/assets/nabawiyya-musa.jpg';
 
 export interface Hero {
   id: string;
@@ -100,6 +105,7 @@ export const REGIONS = [
   'Africa',
   'Asia',
   'Europe',
+  'Middle-East',
   'North America',
   'South America',
   'Oceania',
@@ -590,24 +596,6 @@ const allHeroes: Hero[] = [
       'Helped draft Universal Declaration',
     ],
     imageUrl: eleanorRooseveltImg,
-  },
-  {
-    id: 'golda-meir',
-    name: 'Golda Meir',
-    category: 'Politics',
-    region: 'Middle East',
-    interest: 'Politics',
-    lifespan: '1898-1978',
-    shortBio:
-      'Prime Minister of Israel and one of the first female heads of government.',
-    detailedBio:
-      'Golda Meir was a founding figure in Israeli politics and known as the “Iron Lady” of the Middle East.',
-    milestones: [
-      '1948: Signed Israeli Declaration of Independence',
-      '1969-1974: Israeli Prime Minister',
-      'Known for tough leadership during conflict',
-    ],
-    imageUrl: goldaMeirImg,
   },
   {
     id: 'simone-biles',
@@ -1118,23 +1106,6 @@ const allHeroes: Hero[] = [
     imageUrl: emilyDickinsonImg,
   },
   {
-    id: 'maya-yoshida',
-    name: 'Maya Yoshida',
-    category: 'Sports',
-    region: 'Asia',
-    interest: 'Football',
-    lifespan: '1988-Present',
-    shortBio: 'Japanese professional footballer and national team captain.',
-    detailedBio:
-      'Maya Yoshida is known for leadership and defensive skills, representing Japan internationally.',
-    milestones: [
-      'Captain of Japan national team',
-      'Played in Premier League',
-      'Olympic participant',
-    ],
-    imageUrl: mayaYoshidaImg,
-  },
-  {
     id: 'emily-pankhurst',
     name: 'Emmeline Pankhurst',
     category: 'Activism',
@@ -1167,40 +1138,6 @@ const allHeroes: Hero[] = [
       'Symbol of moral courage',
     ],
     imageUrl: sophieSchollImg,
-  },
-  {
-    id: 'nellie-bly',
-    name: 'Nellie Bly',
-    category: 'Journalism',
-    region: 'North America',
-    interest: 'Investigative Reporting',
-    lifespan: '1864–1922',
-    shortBio: 'Pioneering investigative journalist known for undercover work.',
-    detailedBio:
-      'Nellie Bly exposed abuses in mental institutions by feigning insanity and reporting from inside.',
-    milestones: [
-      'Undercover investigation in 1887',
-      'First woman to circumnavigate globe alone',
-      'Advocate for social reform',
-    ],
-    imageUrl: nellieBlyImg,
-  },
-  {
-    id: 'agnes-macphail',
-    name: 'Agnes Macphail',
-    category: 'Politics',
-    region: 'North America',
-    interest: 'Politics',
-    lifespan: '1890–1954',
-    shortBio: 'First woman elected to the Canadian House of Commons.',
-    detailedBio:
-      'Agnes Macphail was a strong advocate for prison reform and social justice in Canada.',
-    milestones: [
-      'Elected in 1921',
-      'Supported farmers and labour rights',
-      'Promoted peace and disarmament',
-    ],
-    imageUrl: agnesMacphailImg,
   },
   {
     id: 'valentina-kulagina',
@@ -1288,23 +1225,6 @@ const allHeroes: Hero[] = [
     imageUrl: amalClooneyImg,
   },
   {
-    id: 'dorothy-hodgkin',
-    name: 'Dorothy Hodgkin',
-    category: 'Science',
-    region: 'Europe',
-    interest: 'Chemistry',
-    lifespan: '1910–1994',
-    shortBio: 'Nobel laureate who advanced X-ray crystallography.',
-    detailedBio:
-      'Hodgkin determined structures of vital biochemical substances including penicillin and vitamin B12.',
-    milestones: [
-      'Nobel Prize in Chemistry, 1964',
-      'Developed crystallography techniques',
-      'Mentored future scientists',
-    ],
-    imageUrl: dorothyHodgkinImg,
-  },
-  {
     id: 'maya-angelou',
     name: 'Maya Angelou',
     category: 'Literature',
@@ -1389,22 +1309,6 @@ const allHeroes: Hero[] = [
       'Advocated for women’s suffrage',
     ],
     imageUrl: idaBWellsImg,
-  },
-  {
-    id: 'agnes-macphail',
-    name: 'Agnes Macphail',
-    category: 'Politics',
-    region: 'North America',
-    interest: 'Social Reform',
-    lifespan: '1890–1954',
-    shortBio: 'First woman elected to Canadian Parliament.',
-    detailedBio: 'Advocated for farmers, prisoners, and peace.',
-    milestones: [
-      'Elected in 1921',
-      'Promoted social justice',
-      'Supported peace movements',
-    ],
-    imageUrl: agnesMacphailImg,
   },
   {
     id: 'sojourner-truth',
@@ -2179,6 +2083,86 @@ const allHeroes: Hero[] = [
       'Posthumously recognized as a literary icon and feminist pioneer',
     ],
     imageUrl: sorJuanaInesImg,
+  },
+  {
+    id: 'hanan-ashrawi',
+    name: 'Hanan Ashrawi',
+    category: 'Politics',
+    region: 'Middle-East',
+    interest: 'Politics',
+    lifespan: '1946-Present',
+    shortBio: 'Palestinian legislator, activist, and scholar advocating for peace and human rights.',
+    detailedBio: 'Hanan Ashrawi is a Palestinian politician, activist, and scholar who has been a prominent voice for Palestinian rights and peace in the Middle East. She served as a member of the Palestinian Legislative Council and has been involved in peace negotiations. She is known for her articulate advocacy for Palestinian statehood and human rights.',
+    milestones: [
+      '1991-1993: Spokesperson for the Palestinian delegation to the Middle East peace process',
+      '1996: Elected to the Palestinian Legislative Council',
+      'Founded the Palestinian Initiative for the Promotion of Global Dialogue and Democracy',
+    ],
+    imageUrl: hananAshrawiImg,
+  },
+  {
+    id: 'fatima-al-fihri',
+    name: 'Fatima al-Fihri',
+    category: 'Education',
+    region: 'Middle-East',
+    interest: 'Education',
+    lifespan: 'c.800-880',
+    shortBio: 'Founder of the world\'s first university, the University of al-Qarawiyyin in Fez, Morocco.',
+    detailedBio: 'Fatima al-Fihri was a Muslim woman who founded the University of al-Qarawiyyin in 859 CE in Fez, Morocco. This institution is considered the oldest existing, continually operating educational institution in the world. Her vision created a center of learning that attracted scholars from across the Islamic world and Europe.',
+    milestones: [
+      '859: Founded the University of al-Qarawiyyin',
+      'Created a mosque and educational complex',
+      'Established a model for Islamic education that continues today',
+    ],
+    imageUrl: fatimaAlFihriImg,
+  },
+  {
+    id: 'queen-zenobia',
+    name: 'Queen Zenobia',
+    category: 'Politics',
+    region: 'Middle-East',
+    interest: 'Politics',
+    lifespan: 'c.240-274',
+    shortBio: 'Queen of the Palmyrene Empire who challenged Roman authority in the 3rd century.',
+    detailedBio: 'Zenobia was the queen of the Palmyrene Empire in Syria who ruled from 267 to 272 CE. She expanded her empire to include much of the Roman East, including Egypt, and declared independence from Rome. She was known for her military leadership, cultural patronage, and challenge to Roman imperial authority.',
+    milestones: [
+      '267: Became queen regent of Palmyra',
+      '270: Conquered Egypt and expanded Palmyrene territory',
+      '272: Defeated by Roman Emperor Aurelian',
+    ],
+    imageUrl: queenZenobiaImg,
+  },
+  {
+    id: 'huda-shaarawi',
+    name: 'Huda Sha\'arawi',
+    category: 'Activism',
+    region: 'Middle-East',
+    interest: 'Rights Activism',
+    lifespan: '1879-1947',
+    shortBio: 'Egyptian feminist and nationalist who founded the Egyptian Feminist Union.',
+    detailedBio: 'Huda Sha\'arawi was a pioneering Egyptian feminist and nationalist who led the Egyptian women\'s movement in the early 20th century. She founded the Egyptian Feminist Union and was instrumental in organizing women\'s participation in the 1919 Egyptian Revolution against British rule.',
+    milestones: [
+      '1919: Led women\'s participation in the Egyptian Revolution',
+      '1923: Founded the Egyptian Feminist Union',
+      '1923: Publicly removed her veil, symbolizing women\'s liberation',
+    ],
+    imageUrl: hudaShaarawiImg,
+  },
+  {
+    id: 'nabawiyya-musa',
+    name: 'Nabawiyya Musa',
+    category: 'Education',
+    region: 'Middle-East',
+    interest: 'Education',
+    lifespan: '1886-1951',
+    shortBio: 'Egyptian feminist, educator, and writer who championed women\'s education.',
+    detailedBio: 'Nabawiyya Musa was an Egyptian feminist, educator, and writer who was one of the first Egyptian women to graduate from high school and university. She founded schools for girls and wrote extensively about women\'s rights and education. She was a key figure in the Egyptian feminist movement alongside Huda Sha\'arawi.',
+    milestones: [
+      '1907: First Egyptian woman to pass the secondary school certificate exam',
+      '1920: Founded a girls\' school in Alexandria',
+      'Published numerous articles and books on women\'s education and rights',
+    ],
+    imageUrl: nabawiyyaMusaImg,
   }
 ];
 

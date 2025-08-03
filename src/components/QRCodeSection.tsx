@@ -232,15 +232,11 @@ export const QRCodeSection = ({ heroName, heroId, heroImageUrl }: QRCodeSectionP
                 <Copy className="w-4 h-4 mr-2" />
                 Copy URL
               </Button>
-              <Button variant="outline" onClick={downloadQR} className="flex-1">
+              <Button variant="gradient" onClick={downloadQR} className="w-full">
                 <Download className="w-4 h-4 mr-2" />
-                Download QR
+                Download QR Sticker
               </Button>
             </div>
-            <Button onClick={exportPDF} variant="gradient" className="w-full">
-              <FileText className="w-4 h-4 mr-2" />
-              Print Sticker
-            </Button>
           </div>
         </div>
       </CardContent>
