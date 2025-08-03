@@ -54,12 +54,9 @@ import harrietBeecherStoweImg from '@/assets/harriet-beecher-stowe.jpg';
 import empressCixiImg from '@/assets/empress-cixi.jpg';
 import jocelynBellBurnellImg from '@/assets/jocelyn-bell-burnell.jpg';
 import emilyDickinsonImg from '@/assets/emily-dickinson.jpg';
-import mayaYoshidaImg from '@/assets/maya-yoshida.jpg';
-import nellieBlyImg from '@/assets/nellie-bly.jpg';
-import agnesMacphailImg from '@/assets/agnes-macphail.jpg';
+import novaZillaImg from '@/assets/nova-zilla.jpg';
 import valentinaKulaginaImg from '@/assets/valentina-kulagina.jpg';
 import amalClooneyImg from '@/assets/amal-clooney.jpg';
-import dorothyHodgkinImg from '@/assets/dorothy-hodgkin.jpg';
 import adaDeranaImg from '@/assets/ada-derana.jpg';
 import janeAustenImg from '@/assets/jane-austen.jpg';
 import oprahWinfreyImg from '@/assets/oprah-winfrey.jpg';
@@ -347,6 +344,24 @@ const allHeroes: Hero[] = [
       'Considered the mother of the modern environmental movement',
     ],
     imageUrl: rachelCarsonImg,
+  },
+  {
+    id: 'nova-zilla',
+    name: 'NovaZilla',
+    category: 'Literature',
+    region: 'Europe',
+    interest: 'Literature',
+    lifespan: '2024-Present',
+    shortBio:
+      'A fearless hero, half girl-half dinosaur, who stands up for the rights of all.',
+    detailedBio:
+      'NovaZilla is a modern superhero who got her powers though genetic mutation. On her quests she fights for the rights of all, and for the protection of the environment.',
+    milestones: [
+      '2024: Born in Switzerland',
+      '2025: first comic edition published',
+      'Fought against the mighty T-Rex',
+    ],
+    imageUrl: novaZillaImg,
   },
   {
     id: 'anne-frank',
